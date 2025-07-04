@@ -11,8 +11,7 @@ while True:
     path.append(str(value))
     visited_start_ind.add(value)
     start_ind = (start_ind + m - 1) % n
-    if start_ind == 0:  # если вернулись к первому элементу
+    if start_ind == 0:
         break
 
-#print(*path)
 print(''.join(path))
