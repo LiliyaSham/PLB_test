@@ -1,6 +1,3 @@
-import sys
-import math
-
 def read_circle(file_path):
     f = open(file_path, 'r')
     lines = f.readlines()
