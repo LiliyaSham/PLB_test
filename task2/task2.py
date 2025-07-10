@@ -1,3 +1,5 @@
+import sys
+
 def read_circle(file_path):
     f = open(file_path, 'r')
     lines = f.readlines()
@@ -28,8 +30,11 @@ def point_position(x, y, cx, cy, r):
     else:
         return 2
 
-cx, cy, r = read_circle('circle.txt')
-points = read_points('dot.txt')
+circle_file = sys.argv[1]
+dot_file = sys.argv[2]
+
+cx, cy, r = read_circle(circle_file)
+points = read_points(dot_file)
 
 
 for x, y in points:
