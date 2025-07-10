@@ -1,4 +1,5 @@
 import json
+import sys
 
 def load_json(file_path):
     with open(file_path, 'r', encoding='utf-8') as file:
@@ -21,13 +22,14 @@ def fill_values_in_structure(data, value_map):
             if isinstance(data[key], list):
                 fill_values_in_structure(data[key], value_map)
 
-tests_data = load_json('tests.json')
-values_data = load_json('values.json')
+tests_data = load_json(sys.argv[2])
+values_data = load_json(sys.argv[1])
+report_file = sys.argv[3]
 
 value_map = build_value_map(values_data)
 
 report_data = json.loads(json.dumps(tests_data))
 fill_values_in_structure(report_data, value_map)
 
-with open('report.json', 'w', encoding='utf-8') as file3:
+with open(report_file, 'w', encoding='utf-8') as file3:
     json.dump(report_data, file3, ensure_ascii=False, indent=2)
