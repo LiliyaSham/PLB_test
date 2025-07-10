@@ -1,4 +1,10 @@
-n, m = map(int, input().split())
+import sys
+
+if len(sys.argv) != 3:
+    n, m = map(int, input().split())
+else:
+    n = int(sys.argv[1])
+    m = int(sys.argv[2])
 
 path = []
 start_ind = 0
